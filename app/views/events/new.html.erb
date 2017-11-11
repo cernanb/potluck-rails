@@ -8,6 +8,8 @@
     <%= f.datetime_field :date, class: 'uk-input' %>
     <%= f.label :street, class: 'uk-form-label' %>
     <%= f.text_field :street, class: 'uk-input' %>
+    <%= f.label :city, class: 'uk-form-label' %>
+    <%= f.text_field :city, class: 'uk-input' %>
     <div class="address">
       <div>
         <%= f.label :state, class: 'uk-form-label' %>
@@ -18,6 +20,8 @@
         <%= f.text_field :zip, class: 'uk-input' %>
       </div>
     </div>
+    <br />
+    <%= f.submit 'Create Event', class: 'uk-button uk-button-primary' %>
   <% end %>
 </div>
 
