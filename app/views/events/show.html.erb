@@ -1,0 +1,7 @@
+<div class="uk-text-center">
+  <h2><%= @event.text %></h2>
+  created by <%= image_tag(current_user.image) %>
+  <h4>Where:</h4>
+  <%= @event.street %><br/>
+  <%= @event.city %>, <%= @event.state %> <%= @event.zip %>
+</div>
