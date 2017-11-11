@@ -1,0 +1,24 @@
+<div class="module">
+<h3 class="uk-heading-line"><span>Create an Event</span></h3>
+
+  <%= form_for @event, html: {class: 'uk-form-stacked'} do |f| %>
+    <%= f.label "Event", class: 'uk-form-label' %>
+    <%= f.text_field :text, class: 'uk-input' %>
+    <%= f.label :date, class: 'uk-form-label' %>
+    <%= f.datetime_field :date, class: 'uk-input' %>
+    <%= f.label :street, class: 'uk-form-label' %>
+    <%= f.text_field :street, class: 'uk-input' %>
+    <div class="address">
+      <div>
+        <%= f.label :state, class: 'uk-form-label' %>
+        <%= f.text_field :state, class: 'uk-input' %>
+      </div>
+      <div>
+        <%= f.label :zip, class: 'uk-form-label' %>
+        <%= f.text_field :zip, class: 'uk-input' %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<%= stylesheet_pack_tag 'form' %>
