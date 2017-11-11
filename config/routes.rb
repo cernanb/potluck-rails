@@ -3,4 +3,6 @@ Rails.application.routes.draw do
   get '/auth/failure', to: redirect('/')
   delete 'signout', to: 'sessions#destroy', as: 'signout'
   root to: 'sessions#new'
+
+  resource :events
 end
