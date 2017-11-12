@@ -7,4 +7,8 @@ class Event < ApplicationRecord
     event_dishes.where(claimed: false)
   end
 
+  def claimed_dishes
+    event_dishes.where(claimed: true)
+  end
+
 end
