@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20171112042757) do
   end
 
   create_table "event_dishes", force: :cascade do |t|
-    t.boolean "claimed"
+    t.boolean "claimed", default: false
     t.integer "dish_id"
     t.integer "event_id"
     t.integer "user_id"
