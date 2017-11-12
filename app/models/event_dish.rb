@@ -1,0 +1,2 @@
+class EventDish < ApplicationRecord
+end
