@@ -1,11 +1,17 @@
 <div class="uk-text-center">
   <h2><%= @event.text %></h2>
-  created by <%= image_tag(current_user.image) %>
+  <p><%= @event.date.strftime("%b %e, %l:%M %p") %></p>
   <h4>Where:</h4>
   <%= @event.street %><br/>
   <%= @event.city %>, <%= @event.state %> <%= @event.zip %>
 </div>
 
+<p>Add a new dish to the list</p>
+<%= form_for ([@event, Dish.new]) do |f| %>
+  <%= f.label :name, class: 'uk-form-label' %>
+  <%= f.text_field :name, class: 'uk-input-small' %>
+  <%= f.submit 'Add Dish', class: 'uk-button-mini uk-button-primary' %>
+<% end %>
 <h4>Dishes needed: </h4>
 <ul class="uk-list">
   <% @event.unclaimed_dishes.each do |ed| %>
