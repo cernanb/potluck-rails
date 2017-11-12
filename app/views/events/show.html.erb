@@ -5,3 +5,21 @@
   <%= @event.street %><br/>
   <%= @event.city %>, <%= @event.state %> <%= @event.zip %>
 </div>
+
+<h4>Dishes needed: </h4>
+<ul class="uk-list">
+  <% @event.unclaimed_dishes.each do |ed| %>
+    <li>
+    <%= ed.dish.name %>
+    <%= form_for(ed) do |f| %>
+      <%= f.submit "Claim" %>
+    <% end %>
+    </li>
+  <% end %>
+</ul>
+<h4>Dishes claimed: </h4>
+<ul class="uk-list">
+  <% @event.claimed_dishes.each do |ed| %>
+    <li><%= ed.dish.name %> - <%= ed.user.name %></li>
+  <% end %>
+</ul>
