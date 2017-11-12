@@ -1,5 +1,10 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show]
+
+  def index
+    @events = Event.order(:date => :asc)
+  end
+
   def new
     @event = Event.new
   end
