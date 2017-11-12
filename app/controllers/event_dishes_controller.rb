@@ -1,0 +1,2 @@
+class EventDishesController < ApplicationController
+end
