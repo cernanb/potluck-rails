@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   root to: 'sessions#new'
 
   resources :events
+  resources :event_dishes, only: [:update]
 end
