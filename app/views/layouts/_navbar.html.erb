@@ -8,7 +8,6 @@
     <div class="uk-navbar-right">
       <ul class="uk-navbar-nav uk-visible@m">
         <% if logged_in? %>
-          <!-- TODO: Make Drop Down Content -->
           <li>
             <%= link_to 'Events', events_path %>
             <div class="uk-navbar-dropdown">
@@ -17,6 +16,10 @@
                 <li><%= link_to 'Add Event', new_event_path %></li>
               </ul>
             </div>
+          </li>
+          <li>
+            <%= link_to 'Sign Out', signout_path, {method: :delete, class: 'uk-button'} %>
+
           </li>
         <% end %>
       <a uk-navbar-toggle-icon="" href="#offcanvas" uk-toggle="" class="uk-navbar-toggle uk-hidden@m uk-navbar-toggle-icon uk-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" ratio="1"><rect y="9" width="20" height="2"></rect><rect y="3" width="20" height="2"></rect><rect y="15" width="20" height="2"></rect></svg></a>
