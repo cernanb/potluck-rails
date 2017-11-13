@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: [:show]
+  before_action :set_event, only: [:show, :destroy]
 
   def index
     if logged_in? 
@@ -20,6 +20,12 @@ class EventsController < ApplicationController
       redirect_to event
     else
       redirect_to new_event_path
+    end
+  end
+
+  def destroy
+    if @event.destroy
+      redirect_to events_path
     end
   end
 
