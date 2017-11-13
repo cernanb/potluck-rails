@@ -1,8 +1,2 @@
-<% if current_user.blank? %>
   <h1>Welcome to Potluck</h1>
   <a href="/auth/facebook"><button class='uk-button-primary uk-button-large'></span>Sign in with <span uk-icon="icon: facebook"></button></a>
-<% else %>
-  <p>You are signed in as <%= current_user.name %>. Click the button below to sign out.
-  </p>
-  <%= image_tag(current_user.image) %>
-<% end %>

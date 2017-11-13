@@ -2,7 +2,11 @@ class EventsController < ApplicationController
   before_action :set_event, only: [:show]
 
   def index
-    @events = Event.order(:date => :asc)
+    if logged_in? 
+      @events = Event.order(:date => :asc)
+    else
+      render "sessions/new"
+    end
   end
 
   def new
