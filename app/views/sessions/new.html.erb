@@ -5,5 +5,4 @@
   <p>You are signed in as <%= current_user.name %>. Click the button below to sign out.
   </p>
   <%= image_tag(current_user.image) %>
-  <%= button_to 'Sign Out', signout_path, {method: :delete, class: 'uk-button'} %>
 <% end %>
