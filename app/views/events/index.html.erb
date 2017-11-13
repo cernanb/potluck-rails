@@ -2,7 +2,7 @@
 
 <ul class="uk-list">
   <% @events.each do |event| %>
-    <li><%= link_to event.text, event %> - <%= event.date.strftime("%b %e, %l:%M %p") %></li>
+    <li><%= link_to event.text, event %> - <%= event.date.strftime("%b %e, %l:%M %p") %> <% if event.user == current_user %>- <%= link_to "Delete Event", event_path(event), method: 'delete' %> <% end %></li>
   <% end %>
 </ul>
 
