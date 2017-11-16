@@ -1,0 +1,16 @@
+<h3 class="uk-heading-line"><span>Create an Account</span></h3>
+
+  <%= form_for @user, html: {class: 'uk-form-stacked'} do |f| %>
+    <%= f.label :name, class: 'uk-form-label' %>
+    <%= f.text_field :name, class: 'uk-input', :required => true %>
+    <%= f.label :email, class: 'uk-form-label' %>
+    <%= f.text_field :email, class: 'uk-input', :required => true %>
+    <%= f.label :password, class: 'uk-form-label' %>
+    <%= f.text_field :password, class: 'uk-input' %>
+    <br />
+    <br />
+    <%= f.submit 'Create Account', class: 'uk-button uk-button-primary' %>
+  <% end %>
+</div>
+
+<%= stylesheet_pack_tag 'form' %>
