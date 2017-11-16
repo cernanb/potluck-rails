@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   get '/auth/:provider/callback', to: 'sessions#create'
   get '/auth/failure', to: redirect('/')
   delete 'signout', to: 'sessions#destroy', as: 'signout'
-  root to: 'events#index'
+  root to: 'static#home'
 
   resources :events do 
     resources :dishes, only: [:create]
