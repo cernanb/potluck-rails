@@ -33,7 +33,7 @@
     <div class="uk-card-body">
       
       <%= form_for ([@event, Dish.new]) do |f| %>
-        <%= f.label :name, class: 'uk-form-label' %>
+        <%= f.label "Dish Name", class: 'uk-form-label' %>
         <%= f.text_field :name, class: 'uk-input-small' %>
         <%= f.submit 'Add Dish', class: 'uk-button-mini uk-button-primary' %>
       <% end %>
