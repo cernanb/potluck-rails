@@ -82,7 +82,7 @@
       <div class="uk-card-body">
         <ul class="uk-list">
           <% @event.claimed_dishes.each do |ed| %>
-            <li><%= ed.dish.name %> - <%= ed.user.name %></li>
+            <li><%= ed.dish.name.split.map(&:capitalize).join(' ') %> - <%= ed.user.name %></li>
           <% end %>
         </ul>
       </div>
