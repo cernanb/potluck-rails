@@ -5,7 +5,7 @@ class EventsController < ApplicationController
     if logged_in? 
       @events = Event.order(:date => :asc)
     else
-      render "sessions/new"
+      redirect_to login_path
     end
   end
 
@@ -30,7 +30,9 @@ class EventsController < ApplicationController
   end
 
   def show
-
+    if !logged_in?
+      redirect_to login_path
+    end
   end
 
   private
