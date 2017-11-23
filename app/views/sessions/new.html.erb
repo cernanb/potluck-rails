@@ -1,14 +1,16 @@
 <h3 class="uk-heading-line"><span>Log in to your account</span></h3>
 
-  <%= form_for @user, :url => sessions_path, html: {class: 'uk-form-stacked'} do |f| %>
-    <%= f.label :email, class: 'uk-form-label' %>
-    <%= f.text_field :email, class: 'uk-input', :required => true %>
-    <%= f.label :password, class: 'uk-form-label' %>
-    <%= f.password_field :password, class: 'uk-input' %>
-    <br />
-    <br />
-    <%= f.submit 'Log In', class: 'uk-button uk-button-primary' %>
-  <% end %>
-</div>
+<%= form_for @user, :url => sessions_path, html: {class: 'uk-form-stacked'} do |f| %>
+  <%= f.label :email, class: 'uk-form-label' %>
+  <%= f.text_field :email, class: 'uk-input', :required => true %>
+  <%= f.label :password, class: 'uk-form-label' %>
+  <%= f.password_field :password, class: 'uk-input' %>
+  <br />
+  <br />
+  <%= f.submit 'Log In', class: 'uk-button uk-button-primary' %>
+<% end %>
+
+<h4>Don't have an account? <%= link_to "Sign up here", new_user_path %></h4>
+
 
 <%= stylesheet_pack_tag 'form' %>
