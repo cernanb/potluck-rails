@@ -3,7 +3,7 @@ class EventsController < ApplicationController
 
   def index
     if logged_in? 
-      @events = Event.order(:date => :asc)
+      @events = Event.where('date > ?', Date.today).order(:date => :asc)
     else
       redirect_to login_path
     end
@@ -33,6 +33,7 @@ class EventsController < ApplicationController
     if !logged_in?
       redirect_to login_path
     end
+    @dishes  = Dish.all
   end
 
   private
