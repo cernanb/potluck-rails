@@ -18,53 +18,55 @@
     </div>
   </div>
 </div>
-
-<div>
-  <div class="uk-card uk-card-hover uk-card-default uk-card-primary", style="background-color: #27ae60;">
-    <div class="uk-card-header">
-      <div class="uk-grid-small uk-flex-middle" uk-grid>
-        <div class="uk-width-auto">
-          <h3 class="uk-card-title uk-margin-remove-bottom">
-            Add a new dish to the list
-          </h3> 
+  <div>
+    <div class="uk-card uk-card-hover uk-card-default uk-card-default">
+      <div class="uk-card-header">
+        <div class="uk-grid-small uk-flex-middle" uk-grid>
+          <div class="uk-width-auto">
+            <h3 class="uk-card-title uk-margin-remove-bottom">
+              Bring an Existing Dish
+            </h3> 
+          </div>
         </div>
       </div>
-    </div>
-    <div class="uk-card-body">
-      
-      <%= form_for ([@event, Dish.new]) do |f| %>
-        <%= f.label "Dish Name", class: 'uk-form-label' %>
-        <%= f.text_field :name, class: 'uk-input-small' %>
-        <%= f.submit 'Add Dish', class: 'uk-button-mini uk-button-primary' %>
-      <% end %>
-    </div>
-  </div>
-</div>
-<div>
-  <div class="uk-card uk-card-hover uk-card-default uk-card-default">
-    <div class="uk-card-header">
-      <div class="uk-grid-small uk-flex-middle" uk-grid>
-        <div class="uk-width-auto">
-          <h3 class="uk-card-title uk-margin-remove-bottom">
-            Dishes needed
-          </h3> 
-        </div>
-      </div>
-    </div>
-    <div class="uk-card-body">
-      <ul class="uk-list">
-        <% @event.unclaimed_dishes.each do |ed| %>
-          <li>
-          <%= ed.dish.name %> - 
-          <%= form_for(ed) do |f| %>
-            <%= f.submit "I'll Bring It!", class: 'uk-button-mini uk-button-secondary' %>
+      <div class="uk-card-body">
+        <ul class="uk-list">
+          <% @dishes.each do |dish| %>
+            <% if !@event.dishes.include?(dish) %>
+            <li>
+            <%= dish.name %> - 
+            <%= form_for(@event) do |f| %>
+              <%= hidden_field_tag :dish_id, dish.id %>
+              <%= f.submit "I'll Bring It!", class: 'uk-button-mini uk-button-secondary' %>
+            <% end %>
+            </li>
+            <% end %>
           <% end %>
-          </li>
-        <% end %>
-      </ul>
+        </ul>
+      </div>
     </div>
   </div>
-</div>
+    <div>
+    <div class="uk-card uk-card-hover uk-card-default uk-card-primary", style="background-color: #27ae60;">
+      <div class="uk-card-header">
+        <div class="uk-grid-small uk-flex-middle" uk-grid>
+          <div class="uk-width-auto">
+            <h3 class="uk-card-title uk-margin-remove-bottom">
+              Bring a Dish Not on the List
+            </h3> 
+          </div>
+        </div>
+      </div>
+      <div class="uk-card-body">
+        
+        <%= form_for ([@event, Dish.new]) do |f| %>
+          <%= f.label "Dish Name", class: 'uk-form-label' %>
+          <%= f.text_field :name, class: 'uk-input-small' %>
+          <%= f.submit 'Add Dish', class: 'uk-button-mini uk-button-primary' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>
 
 <div class="uk-grid-match uk-child-width-1-2@m uk-text-center" uk-grid>
