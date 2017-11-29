@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: [:show, :destroy]
+  before_action :set_event, only: [:show, :destroy, :update]
 
   def index
     if logged_in? 
@@ -20,6 +20,13 @@ class EventsController < ApplicationController
       redirect_to event
     else
       redirect_to new_event_path
+    end
+  end
+
+  def update
+    ed = @event.event_dishes.build(dish_id: params[:dish_id], user: current_user, claimed: true)
+    if ed.save
+      redirect_to @event
     end
   end
 
