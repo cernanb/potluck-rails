@@ -8,6 +8,10 @@ jobs:
     docker:
       # specify the version you desire here
        - image: circleci/ruby:2.4.1-node-browsers
+         environment:
+          PGHOST: 127.0.0.1
+          PGUSER: myapp-test
+          RAILS_ENV: test
       
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
@@ -17,7 +21,6 @@ jobs:
           POSTGRES_USER: postgres
           POSTGRES_DB: potluck_test
           POSTGRES_PASSWORD: ""
-          TZ: America/New_York
 
     working_directory: ~/repo
 
@@ -45,7 +48,7 @@ jobs:
       - run:
           name: Wait for db
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
-          
+
       - run: bundle exec rake db:create
       - run: bundle exec rake db:schema:load
 
