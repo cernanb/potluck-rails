@@ -39,7 +39,9 @@
               <%= hidden_field_tag :dish_id, dish.id %>
               <%= f.submit "I'll Bring It!", class: 'uk-button-mini uk-button-secondary' %>
             <% end %>
-            <%= button_to "Delete", event_dish_path(@event, dish), method: :delete %>
+            <% if current_user.admin %>
+              <%= button_to "Delete", event_dish_path(@event, dish), method: :delete %>
+            <% end %>
             </li>
             <% end %>
           <% end %>
