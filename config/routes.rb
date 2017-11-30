@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#new'
 
   resources :events do 
-    resources :dishes, only: [:create]
+    resources :dishes, only: [:create, :destroy]
   end
   resources :event_dishes, only: [:update]
 
