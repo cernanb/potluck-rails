@@ -35,7 +35,7 @@
             <% if !@event.dishes.include?(dish) %>
             
             <div class="uk-tile uk-padding-small uk-tile-default">
-            <%= dish.name %>  
+            <%= dish.name.split.map(&:capitalize).join(' ') %>  
             <%= form_for(@event) do |f| %>
               <%= hidden_field_tag :dish_id, dish.id %>
               <%= f.submit "I'll Bring It!", class: 'uk-button-mini uk-button-secondary' %>
