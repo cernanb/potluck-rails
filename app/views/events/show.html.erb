@@ -24,17 +24,18 @@
         <div class="uk-grid-small uk-flex-middle" uk-grid>
           <div class="uk-width-auto">
             <h3 class="uk-card-title uk-margin-remove-bottom">
-              Bring a Previous Dish
+              Previous Dishes
             </h3> 
           </div>
         </div>
       </div>
       <div class="uk-card-body">
-        <ul class="uk-list">
-          <% @dishes.each do |dish| %>
+        <div class="uk-child-width-1-2@s uk-grid-collapse uk-text-center" uk-grid>
+          <% @dishes.each_with_index do |dish, i| %>
             <% if !@event.dishes.include?(dish) %>
-            <li>
-            <%= dish.name %> - 
+            
+            <div class="uk-tile uk-padding-small uk-tile-default">
+            <%= dish.name %>  
             <%= form_for(@event) do |f| %>
               <%= hidden_field_tag :dish_id, dish.id %>
               <%= f.submit "I'll Bring It!", class: 'uk-button-mini uk-button-secondary' %>
@@ -42,10 +43,10 @@
             <% if current_user.admin %>
               <%= button_to "Delete", event_dish_path(@event, dish), method: :delete %>
             <% end %>
-            </li>
+            </div>
             <% end %>
           <% end %>
-        </ul>
+        </div>
       </div>
     </div>
   </div>
@@ -55,7 +56,7 @@
         <div class="uk-grid-small uk-flex-middle" uk-grid>
           <div class="uk-width-auto">
             <h3 class="uk-card-title uk-margin-remove-bottom">
-              Bring a Dish Not on the List
+              New Dish
             </h3> 
           </div>
         </div>
