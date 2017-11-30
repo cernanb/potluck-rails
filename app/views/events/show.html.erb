@@ -31,7 +31,7 @@
       </div>
       <div class="uk-card-body">
         <div class="uk-child-width-1-2@s uk-grid-collapse uk-text-center" uk-grid>
-          <% @dishes.each_with_index do |dish, i| %>
+          <% @dishes.sort{|a, b| a.name <=> b.name }.each do |dish| %>
             <% if !@event.dishes.include?(dish) %>
             
             <div class="uk-tile uk-padding-small uk-tile-default">
