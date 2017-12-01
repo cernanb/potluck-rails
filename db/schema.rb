@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171201050831) do
+ActiveRecord::Schema.define(version: 20171201062020) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,7 +56,7 @@ ActiveRecord::Schema.define(version: 20171201050831) do
     t.string "provider"
     t.string "uid"
     t.string "name"
-    t.text "image"
+    t.text "image", default: "https://community.yellowfinbi.com/public/avatars/default-avatar.svg"
     t.string "facebook_oauth_token"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
