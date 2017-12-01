@@ -106,6 +106,10 @@
         </div>
       </div>
       <div class="uk-card-body">
+        <%= form_for(@comment) do |f| %>
+          <%= f.text_field :content, class: 'uk-input', placeholder: "add a comment", :required => true %>
+          <%= hidden_field_tag :event_id, @event.id %>
+        <% end %>
         <ul class="uk-list">          
           <li>Comment 1</li>
         </ul>

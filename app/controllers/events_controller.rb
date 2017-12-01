@@ -40,6 +40,7 @@ class EventsController < ApplicationController
     if !logged_in?
       redirect_to login_path
     end
+    @comment = current_user.comments.build
     @dishes  = Dish.all
   end
 

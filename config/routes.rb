@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   resources :events do 
     resources :dishes, only: [:create, :destroy]
   end
+
+  resources :comments, only: [:create]
   resources :event_dishes, only: [:update]
 
   resources :users, only: [:new, :create]
