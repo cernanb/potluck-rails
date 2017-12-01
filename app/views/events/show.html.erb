@@ -73,9 +73,9 @@
   </div>
 </div>
 
-<div class="uk-grid-match uk-child-width-1-2@m uk-text-center" uk-grid>
+<div class="uk-grid-match uk-child-width-1-2@m" uk-grid>
   <div>
-    <div class="uk-card uk-card-hover uk-card-default uk-card-default">
+    <div class="uk-card uk-card-hover uk-card-default uk-card-default uk-text-center">
       <div class="uk-card-header">
         <div class="uk-grid-small uk-flex-middle" uk-grid>
           <div class="uk-width-auto">
@@ -110,8 +110,28 @@
           <%= f.text_field :content, class: 'uk-input', placeholder: "add a comment", :required => true %>
           <%= hidden_field_tag :event_id, @event.id %>
         <% end %>
-        <ul class="uk-list">          
-          <li>Comment 1</li>
+        <ul class="uk-comment-list"> 
+          <% @event.comments.each do |c| %>
+            <li style="margin-top: 20px;">
+              <article class="uk-comment uk-visible-toggle">
+                <header class="uk-comment-header uk-position-relative">
+                    <div class="uk-grid-medium uk-flex-middle" uk-grid>
+                        <div class="uk-width-auto">
+                            <img class="uk-comment-avatar" src="<%= c.user.image %>" width="80" height="80" alt="">
+                        </div>
+                        <div class="uk-width-expand">
+                            <h4 class="uk-comment-title uk-margin-remove"><%= c.user.name %></h4>
+                            <p class="uk-comment-meta uk-margin-remove-top"><%= time_ago_in_words(c.created_at) %> ago</p>
+                        </div>
+                    </div>
+                </header>
+                <div class="uk-comment-body">
+                    <%= c.content %>
+                </div>
+            </article>
+            <hr class="uk-divider-small" />
+            </li>
+          <% end %>
         </ul>
       </div>
     </div>
