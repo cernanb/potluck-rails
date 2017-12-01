@@ -41,6 +41,7 @@ class EventsController < ApplicationController
       redirect_to login_path
     end
     @comment = current_user.comments.build
+    @comments = @event.comments.order(created_at: :desc)
     @dishes  = Dish.all
   end
 
